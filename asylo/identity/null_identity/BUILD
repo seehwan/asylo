@@ -44,7 +44,7 @@ cc_library(
         "//asylo/identity:enclave_assertion_generator",
         "//asylo/platform/common:static_map",
         "//asylo/util:logging",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
     alwayslink = 1,
 )
@@ -66,7 +66,7 @@ cc_library(
         "//asylo/identity:enclave_assertion_verifier",
         "//asylo/platform/common:static_map",
         "//asylo/util:logging",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
     alwayslink = 1,
 )
@@ -92,7 +92,7 @@ cc_test(
         "//asylo/identity:init",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
         "@com_google_googletest//:gtest",
     ],
 )

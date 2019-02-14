@@ -69,7 +69,7 @@ cc_library(
         "//asylo/crypto:algorithms_proto_cc",
         "//asylo/crypto:signing_key",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -113,7 +113,7 @@ cc_library(
         "//asylo/identity:enclave_assertion_generator",
         "//asylo/platform/core:trusted_global_state",
         "//asylo/util:status",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
     alwayslink = 1,
 )
@@ -140,8 +140,8 @@ cc_test(
         "//asylo/test/util:proto_matchers",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
         "@com_google_googletest//:gtest",
         "@com_google_protobuf//:protobuf",
     ],
@@ -165,7 +165,7 @@ cc_library(
         "//asylo/identity:enclave_assertion_verifier",
         "//asylo/platform/core:trusted_global_state",
         "//asylo/util:status",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
     alwayslink = 1,
 )
@@ -192,8 +192,8 @@ cc_test(
         "//asylo/test/util:proto_matchers",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
         "@com_google_googletest//:gtest",
         "@com_google_protobuf//:protobuf",
     ],
@@ -220,7 +220,7 @@ cc_test(
         "//asylo/test/util:proto_matchers",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -273,7 +273,7 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -375,7 +375,7 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/base:core_headers",
     ],
 )
 
@@ -389,7 +389,7 @@ cc_test(
         "//asylo/crypto/util:trivial_object_util",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -409,7 +409,7 @@ cc_library(
     }),
     deps = [
         ":hardware_types",
-        "@com_google_absl//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/base:core_headers",
         "//asylo/crypto/util:bytes",
         "//asylo/util:logging",
         "@boringssl//:crypto",
@@ -440,7 +440,7 @@ cc_test(
         "//asylo/test/util:proto_matchers",
         "//asylo/test/util:test_main",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -476,7 +476,7 @@ cc_library(
         "//asylo/platform/common:singleton",
         "//asylo/util:cleansing_types",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -499,7 +499,7 @@ cc_library(
         "//asylo/identity:secret_sealer",
         "//asylo/util:cleansing_types",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
     ],
 )
 
@@ -522,7 +522,7 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -537,8 +537,8 @@ cc_library(
         ":code_identity_proto_cc",
         ":hardware_types",
         "//asylo/identity/util:sha256_hash_proto_cc",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf",
     ],
 )
@@ -553,7 +553,7 @@ cc_test(
         ":proto_format",
         "//asylo/identity/util:sha256_hash_proto_cc",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )

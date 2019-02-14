@@ -111,7 +111,7 @@ cc_library(
         ":identity_expectation_matcher",
         ":identity_proto_cc",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf_lite",
     ],
 )
@@ -135,7 +135,7 @@ cc_library(
         "//asylo/crypto/util:byte_container_view",
         "//asylo/platform/common:static_map",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf",
     ],
 )
@@ -167,7 +167,7 @@ cc_library(
         "//asylo/crypto/util:byte_container_util",
         "//asylo/crypto/util:byte_container_view",
         "//asylo/util:status",
-        "@com_google_absl//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
     ],
 )
 

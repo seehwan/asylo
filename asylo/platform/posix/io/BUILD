@@ -67,12 +67,12 @@ cc_library(
         "//asylo/platform/storage/secure:trusted_secure",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/algorithm:container",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/container:flat_hash_set",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/algorithm:container",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 
@@ -83,7 +83,7 @@ cc_library(
     copts = ASYLO_DEFAULT_COPTS,
     linkstatic = 1,
     visibility = ["//visibility:private"],
-    deps = ["@com_google_absl//absl/strings"],
+    deps = ["@com_google_absl_asylo//absl/strings"],
 )
 
 # Test reading and writing to a file from inside an enclave.
@@ -96,7 +96,7 @@ cc_enclave_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_flags",
         "//asylo/util:cleansing_types",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -108,7 +108,7 @@ cc_test(
     enclave_test_name = "eventfd_enclave_test",
     deps = [
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -122,7 +122,7 @@ cc_enclave_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_flags",
         "//asylo/util:logging",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -135,8 +135,8 @@ cc_enclave_test(
     deps = [
         ":io_manager",
         "//asylo/test/util:status_matchers",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -149,7 +149,7 @@ cc_enclave_test(
     deps = [
         ":io_manager",
         "//asylo/test/util:test_flags",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -162,7 +162,7 @@ cc_test(
     deps = [
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -175,7 +175,7 @@ cc_test(
     deps = [
         "//asylo/test/util:test_flags",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -215,7 +215,7 @@ cc_test(
     deps = [
         ":util",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -228,7 +228,7 @@ cc_test(
     deps = [
         "//asylo/test/util:test_flags",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )

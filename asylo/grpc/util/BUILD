@@ -43,8 +43,8 @@ cc_library(
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
         "@com_github_grpc_grpc//:grpc++_codegen_base",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 
@@ -65,9 +65,9 @@ cc_test(
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
         "@com_github_grpc_grpc//:grpc++_codegen_base",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/time",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/time",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -90,6 +90,6 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )

@@ -63,7 +63,7 @@ cc_library(
         "@com_github_grpc_grpc//:grpc_base_c",
         "@com_github_grpc_grpc//:grpc_secure",
         "@com_github_grpc_grpc//:tsi_interface",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
         "@com_google_protobuf//:protobuf_lite",
     ],
 )
@@ -134,7 +134,7 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
         "@com_google_googletest//:gtest",
         "@com_google_protobuf//:protobuf_lite",
     ],
@@ -167,7 +167,7 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -211,8 +211,8 @@ cc_library(
         "//asylo/util:cleansing_types",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf",
         "@com_google_protobuf//:protobuf_lite",
     ],
@@ -236,7 +236,7 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
         "@com_google_protobuf//:protobuf",
     ],
 )
@@ -259,8 +259,8 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf",
     ],
 )
@@ -278,7 +278,7 @@ cc_library(
         "//asylo/identity:enclave_assertion_verifier",
         "//asylo/identity:identity_proto_cc",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 

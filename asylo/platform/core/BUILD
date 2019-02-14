@@ -44,12 +44,12 @@ cc_library(
         "//asylo/platform/common:time_util",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
-        "@com_google_absl//absl/time",
-        "@com_google_absl//absl/types:variant",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
+        "@com_google_absl_asylo//absl/time",
+        "@com_google_absl_asylo//absl/types:variant",
     ],
 )
 
@@ -68,7 +68,7 @@ cc_library(
         "//asylo/util:status",
     ] + select({
         "@com_google_asylo//asylo": [],
-        "//conditions:default": ["@com_google_absl//absl/base:core_headers"],
+        "//conditions:default": ["@com_google_absl_asylo//absl/base:core_headers"],
     }),
 )
 
@@ -109,9 +109,9 @@ cc_library(
         "//asylo/platform/posix/threading:thread_manager",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 
@@ -173,10 +173,10 @@ cc_library(
     deps = [
         ":shared_name",
         "//asylo/util:status",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 
@@ -205,7 +205,7 @@ cc_test(
         "//asylo/platform/common:time_util",
         "//asylo/test/util:test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/time",
+        "@com_google_absl_asylo//absl/time",
         "@com_google_googletest//:gtest",
     ],
 )

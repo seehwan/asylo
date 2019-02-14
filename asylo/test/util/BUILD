@@ -34,7 +34,7 @@ cc_library(
     copts = ASYLO_DEFAULT_COPTS,
     visibility = ["//visibility:public"],
     deps = [
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -50,8 +50,8 @@ cc_library(
         "//asylo/crypto/util:bytes",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 
@@ -99,7 +99,7 @@ cc_library(
         "//asylo:enclave_proto_cc",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
     ],
 )
 
@@ -195,7 +195,7 @@ cc_library(
     deps = [
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -222,8 +222,8 @@ cc_library(
     deps = [
         "//asylo/crypto/util:bytes",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/types:optional",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/types:optional",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -239,7 +239,7 @@ cc_test(
         ":status_matchers",
         ":test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -335,7 +335,7 @@ cc_library(
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
         "//asylo:enclave_proto_cc",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 

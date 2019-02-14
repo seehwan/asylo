@@ -105,8 +105,8 @@ cc_library(
     visibility = ["//visibility:private"],
     deps = [
         ":pthread_impl",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/synchronization",
         "//asylo/util:logging",
         "//asylo/platform/arch:trusted_arch",
         "//asylo/platform/common:bridge_types",
@@ -164,7 +164,7 @@ sgx_enclave(
         "//asylo/test/util:enclave_test_application",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
     ],
 )
 
@@ -178,7 +178,7 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -197,8 +197,8 @@ enclave_test(
         "//asylo/test/util:test_main",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/container:flat_hash_set",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )

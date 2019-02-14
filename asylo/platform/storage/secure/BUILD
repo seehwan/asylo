@@ -48,7 +48,7 @@ cc_library(
     ],
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
         "@com_google_certificate_transparency//:merkletree",
     ],
 )
@@ -66,10 +66,10 @@ cc_library(
         "//asylo/platform/crypto/gcmlib:gcm_cryptor",
         "//asylo/platform/storage/utils:fd_closer",
         "//asylo/platform/storage/utils:offset_translator",
-        "@com_google_absl//absl/base:core_headers",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 

@@ -62,7 +62,7 @@ cc_library(
     hdrs = ["offset_translator.h"],
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
     ],
 )
 

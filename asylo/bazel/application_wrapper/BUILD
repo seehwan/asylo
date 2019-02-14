@@ -38,7 +38,7 @@ cc_library(
     hdrs = ["argv.h"],
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf_lite",
     ],
 )
@@ -63,7 +63,7 @@ cc_library(
         "//asylo:enclave_runtime",
         "//asylo/util:logging",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -76,7 +76,7 @@ cc_test(
     deps = [
         ":argv",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/base:core_headers",
         "@com_google_googletest//:gtest",
         "@com_google_protobuf//:protobuf_lite",
     ],
@@ -132,7 +132,7 @@ enclave_test(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@com_github_gflags_gflags//:gflags_nothreads",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )

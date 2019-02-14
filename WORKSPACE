@@ -19,6 +19,7 @@ workspace(name = "com_google_asylo")
 
 load("//asylo/bazel:asylo_deps.bzl", "asylo_deps",
      "asylo_backend_deps", "asylo_go_deps", "asylo_testonly_deps")
+
 asylo_deps()
 asylo_backend_deps()
 asylo_testonly_deps()

@@ -52,8 +52,8 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
         "//asylo/util:cleansing_types",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/types:span",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/types:span",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -67,7 +67,7 @@ cc_library(
     deps = [
         "//asylo/util:logging",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -83,7 +83,7 @@ cc_test(
         ":bytes",
         "//asylo/test/util:test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -100,7 +100,7 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/base:core_headers",
     ],
 )
 
@@ -124,7 +124,7 @@ cc_library(
     deps = [
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -137,7 +137,7 @@ cc_test(
         ":trivial_object_util",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/container:flat_hash_set",
+        "@com_google_absl_asylo//absl/container:flat_hash_set",
         "@com_google_googletest//:gtest",
     ],
 )

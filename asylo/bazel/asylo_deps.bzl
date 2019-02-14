@@ -102,9 +102,9 @@ def asylo_deps():
         )
 
     # Absl for C++
-    if "com_google_absl" not in native.existing_rules():
+    if "com_google_absl_asylo" not in native.existing_rules():
         http_archive(
-            name = "com_google_absl",
+            name = "com_google_absl_asylo",
             # Head commit on Nov 20, 2018.
             urls = [
                 "https://github.com/abseil/abseil-cpp/archive/3088e76c597e068479e82508b1770a7ad0c806b6.tar.gz",

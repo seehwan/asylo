@@ -107,7 +107,7 @@ cc_library(
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
         "@com_github_grpc_grpc//:grpc_secure",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_protobuf//:protobuf_lite",
     ],
 )
@@ -125,7 +125,7 @@ cc_test(
         "//asylo/test/util:test_main",
         "@com_github_grpc_grpc//:grpc++",
         "@com_github_grpc_grpc//:grpc_secure",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
         "@com_google_googletest//:gtest",
         "@com_google_protobuf//:protobuf",
         "@com_google_protobuf//:protobuf_lite",

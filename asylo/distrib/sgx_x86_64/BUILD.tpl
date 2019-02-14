@@ -86,4 +86,3 @@ cc_toolchain(
     supports_param_files = 0,
     toolchain_identifier = "asylo_k8",
 )
-

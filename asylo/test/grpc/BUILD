@@ -52,7 +52,7 @@ cc_library(
     deps = [
         ":service_grpc_proto",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -97,7 +97,7 @@ sgx_enclave(
         "//asylo:enclave_runtime",
         "//asylo/grpc/util:enclave_server",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
     ],
 )
 
@@ -115,7 +115,7 @@ sgx_enclave(
         "//asylo/grpc/util:enclave_server",
         "//asylo/identity:identity_proto_cc",
         "//asylo/util:status",
-        "@com_google_absl//absl/memory",
+        "@com_google_absl_asylo//absl/memory",
     ],
 )
 
@@ -150,7 +150,7 @@ sgx_enclave(
         "//asylo/identity:identity_proto_cc",
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/time",
+        "@com_google_absl_asylo//absl/time",
     ],
 )
 
@@ -172,8 +172,8 @@ enclave_test(
         "//asylo/test/util:test_main",
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -199,8 +199,8 @@ enclave_test(
         "//asylo/test/util:test_main",
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -223,8 +223,8 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
         "//asylo/util:logging",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/time",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/time",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -252,7 +252,7 @@ enclave_test(
         "//asylo/test/util:test_flags",
         "//asylo/test/util:test_main",
         "//asylo/util:status",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )

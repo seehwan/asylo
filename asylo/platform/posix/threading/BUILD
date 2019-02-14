@@ -35,6 +35,6 @@ cc_library(
         "//asylo/platform/arch:trusted_arch",
         "//asylo/platform/core:trusted_core",
         "//asylo/platform/posix:pthread_impl",
-        "@com_google_absl//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
     ],
 )

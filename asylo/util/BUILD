@@ -59,10 +59,10 @@ cc_library(
     visibility = ["//asylo:implementation"],
     deps = [
         ":status",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/types:optional",
-        "@com_google_absl//absl/types:span",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/types:optional",
+        "@com_google_absl_asylo//absl/types:span",
     ],
 )
 
@@ -99,8 +99,8 @@ cc_test(
         "//asylo/test/util:test_main",
         "//asylo/util:logging",
         "@com_github_gflags_gflags//:gflags_nothreads",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/types:span",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/types:span",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -116,8 +116,8 @@ cc_library(
         ":cleanup",
         ":status",
         "//asylo/util:logging",
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/types:span",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/types:span",
     ],
 )
 
@@ -136,7 +136,7 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
         "@com_github_gflags_gflags//:gflags_nothreads",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -148,7 +148,7 @@ cc_library(
     hdrs = ["logging.h"],
     copts = ASYLO_DEFAULT_COPTS,
     visibility = ["//visibility:public"],
-    deps = ["@com_google_absl//absl/base:core_headers"],
+    deps = ["@com_google_absl_asylo//absl/base:core_headers"],
 )
 
 cc_library(
@@ -182,10 +182,10 @@ cc_library(
         ":status_proto_cc",
         "//asylo/platform/common:static_map",
         "//asylo/util:logging",
-        "@com_google_absl//absl/base:core_headers",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/meta:type_traits",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/meta:type_traits",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -220,7 +220,7 @@ cc_test(
         "//asylo/platform/common:static_map",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -234,8 +234,8 @@ cc_test(
         ":status",
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -281,7 +281,7 @@ cc_test(
         ":status",
         "//asylo/platform/common:static_map",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -312,7 +312,7 @@ cc_library(
     hdrs = ["path.h"],
     copts = ASYLO_DEFAULT_COPTS,
     visibility = ["//visibility:public"],
-    deps = ["@com_google_absl//absl/strings"],
+    deps = ["@com_google_absl_asylo//absl/strings"],
 )
 
 # Test for the path library.

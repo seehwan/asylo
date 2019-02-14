@@ -42,7 +42,7 @@ cc_library(
     name = "singleton",
     hdrs = ["singleton.h"],
     copts = ASYLO_DEFAULT_COPTS,
-    deps = ["@com_google_absl//absl/synchronization"],
+    deps = ["@com_google_absl_asylo//absl/synchronization"],
 )
 
 # Singleton test.
@@ -54,8 +54,8 @@ cc_test(
         ":singleton",
         "//asylo/test/util:test_main",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/synchronization",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -69,8 +69,8 @@ cc_library(
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
         "//asylo/util:logging",
-        "@com_google_absl//absl/container:flat_hash_map",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/synchronization",
     ],
 )
 
@@ -82,7 +82,7 @@ cc_test(
     deps = [
         ":static_map",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -110,8 +110,8 @@ cc_library(
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
         "//asylo/util:logging",
-        "@com_google_absl//absl/base:core_headers",
-        "@com_google_absl//absl/container:flat_hash_map",
+        "@com_google_absl_asylo//absl/base:core_headers",
+        "@com_google_absl_asylo//absl/container:flat_hash_map",
     ],
 )
 
@@ -129,7 +129,7 @@ cc_library(
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
         ":bridge_types_proto_cc",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -179,8 +179,8 @@ cc_library(
     hdrs = ["debug_strings.h"],
     copts = ASYLO_DEFAULT_COPTS,
     deps = [
-        "@com_google_absl//absl/strings",
-        "@com_google_absl//absl/types:span",
+        "@com_google_absl_asylo//absl/strings",
+        "@com_google_absl_asylo//absl/types:span",
     ],
 )
 

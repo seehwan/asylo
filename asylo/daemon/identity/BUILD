@@ -41,7 +41,7 @@ cc_library(
         "//asylo/util:logging",
         "//asylo/util:status",
         "@boringssl//:crypto",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
     ],
 )
 
@@ -83,7 +83,7 @@ cc_test(
         "//asylo/test/util:status_matchers",
         "//asylo/test/util:test_flags",
         "//asylo/test/util:test_main",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -100,8 +100,8 @@ cc_test(
         "//asylo/test/util:test_main",
         "//asylo/util:status",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/memory",
-        "@com_google_absl//absl/synchronization",
+        "@com_google_absl_asylo//absl/memory",
+        "@com_google_absl_asylo//absl/synchronization",
         "@com_google_googletest//:gtest",
     ],
 )
@@ -118,7 +118,7 @@ cc_test(
         "//asylo/test/util:test_flags",
         "//asylo/test/util:test_main",
         "@com_github_grpc_grpc//:grpc++",
-        "@com_google_absl//absl/strings",
+        "@com_google_absl_asylo//absl/strings",
         "@com_google_googletest//:gtest",
     ],
 )
