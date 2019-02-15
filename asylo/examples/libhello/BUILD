@@ -21,7 +21,6 @@ licenses(["notice"])  # Apache v2.0
 load(
     "//asylo/bazel:asylo.bzl",
     "enclave_loader",
-    "enclave_loader_library",
     "sim_enclave",
 )
 load("//asylo/bazel:proto.bzl", "asylo_proto_library")
@@ -52,12 +51,9 @@ sim_enclave(
     ],
 )
 
-enclave_loader_library(
-    name = "helloo",
+cc_library(
+    name = "hello",
     srcs = ["hello_driver.cc"],
-    copts = ASYLO_DEFAULT_COPTS,
-    enclaves = {"enclave": ":hello_enclave.so"},
-    loader_args = ["--enclave_path='{enclave}'"],
     deps = [
         ":hello_proto_cc",
         "//asylo:enclave_client",
@@ -67,3 +63,18 @@ enclave_loader_library(
     ],
 )
 
+enclave_loader(
+    name = "helloo",
+    srcs = ["hello.cc"],
+    copts = ASYLO_DEFAULT_COPTS,
+    enclaves = {"enclave": ":hello_enclave.so"},
+    loader_args = ["--enclave_path='{enclave}'"],
+    deps = [
+		":hello",
+        ":hello_proto_cc",
+        "//asylo:enclave_client",
+        "//asylo/util:logging",
+        "@com_github_gflags_gflags//:gflags_nothreads",
+        "@com_google_absl_asylo//absl/strings",
+    ],
+)

@@ -21,7 +21,7 @@
 #include <vector>
 #include "absl/strings/str_split.h"
 #include "asylo/client.h"
-#include "asylo/examples/hello_world/hello.pb.h"
+#include "asylo/examples/libhello/hello.pb.h"
 #include "gflags/gflags.h"
 #include "asylo/util/logging.h"
 
@@ -29,7 +29,7 @@ DEFINE_string(enclave_path, "", "Path to enclave to load");
 DEFINE_string(names, "",
               "A comma-separated list of names to pass to the enclave");
 
-int main(int argc, char *argv[]) {
+int lib_main(int argc, char *argv[]) {
   // Part 0: Setup
   ::google::ParseCommandLineFlags(&argc, &argv,
                                   /*remove_flags=*/true);

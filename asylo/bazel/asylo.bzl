@@ -45,21 +45,6 @@ def _parse_label(label):
             pkg = native.package_name() + ("/" + pkg2 if pkg2 else "")
     return pkg, target
 
-def _ensure_shared_manual(args):
-    """Set linkopts and tags keys of args for static linking and manual testing.
-
-    Args:
-      args: A map representing the arguments to either cc_binary or cc_test.
-
-    Returns:
-      The given args modified for linking and tagging.
-    """
-
-    # Fully static so the test can move and still operate
-    args["linkstatic"] = 0
-    args["copts"] = ["-g0"] + args.get("copts", [])
-    return args
-
 def _ensure_static_manual(args):
     """Set linkopts and tags keys of args for static linking and manual testing.
 
@@ -74,23 +59,6 @@ def _ensure_static_manual(args):
     args["linkstatic"] = 1
     args["copts"] = ["-g0"] + args.get("copts", [])
     return args
-
-def copy_libfrom_host(target, output, name = ""):
-    """Genrule that builds target with host CROSSTOOL."""
-    _, local_name = _parse_label(target)
-    name = name if name else local_name + "_as_host"
-    native.genrule(
-        name = name,
-        srcs = [target],
-        outs = [output],
-        cmd = "cp bazel-out/host/bin/external/com_google_asylo/asylo/examples/hello_world/libhelloo_loader.so $@",
-        #cmd = "cp $(location %s) $@" %target,
-        executable = 1,
-        output_to_bindir = 1,
-        tools = [target],
-        testonly = 1,
-    )
-
 
 def copy_from_host(target, output, name = ""):
     """Genrule that builds target with host CROSSTOOL."""
@@ -306,56 +274,6 @@ def _make_enclave_runner_rule(test = False):
 _enclave_runner_script = _make_enclave_runner_rule()
 _enclave_runner_test = _make_enclave_runner_rule(test = True)
 
-def embed_libenclaves(name, elf_file, enclaves, **kwargs):
-    """Build rule for embedding one or more enclaves into an ELF file.
-
-    Each enclave is embedded in a new ELF section that does not get loaded into
-    memory automatically when the elf file is run.
-
-    If the original binary already has a section with the same name as one of
-    the given section names, objcopy (and the bazel invocation) will fail with
-    an error message stating that the file is in the wrong format.
-
-    Args:
-      name: The name of a new ELF file containing the contents of the original
-        ELF file and the embedded enclaves.
-      elf_file: The ELF file to embed the enclaves in. This target is built with
-        the host toolchain.
-      enclaves: A dictionary from new ELF section names to the enclave files
-        that should be embedded in those sections. The section names may not
-        start with ".", since section names starting with "." are reserved for
-        the system.
-      **kwargs: genrule arguments.
-    """
-    genrule_name = name + "_rule"
-    elf_file_from_host = name + "_elf_file_from_host"
-
-    objcopy_flags = []
-    for section_name, enclave_file in enclaves.items():
-        if len(section_name) == 0:
-            fail("Section names must be non-empty")
-        if section_name[0] == ".":
-            fail("User-defined section names may not begin with \".\"")
-        objcopy_flags += [
-            "--add-section",
-            "\"{section_name}\"=\"$(location {enclave_file})\"".format(
-                section_name = section_name,
-                enclave_file = enclave_file,
-            ),
-        ]
-
-    copy_libfrom_host(target = elf_file, output = elf_file_from_host)
-    native.genrule(
-        name = genrule_name,
-        srcs = enclaves.values() + [elf_file_from_host],
-        outs = [name],
-        output_to_bindir = 1,
-        cmd = "$(OBJCOPY) {objcopy_flags} $(location {elf_file}) $@".format(
-            objcopy_flags = " ".join(objcopy_flags),
-            elf_file = elf_file_from_host,
-        ),
-        **kwargs
-    )
 def embed_enclaves(name, elf_file, enclaves, **kwargs):
     """Build rule for embedding one or more enclaves into an ELF file.
 
@@ -407,64 +325,6 @@ def embed_enclaves(name, elf_file, enclaves, **kwargs):
         **kwargs
     )
 
-def enclave_loader_library(
-        name,
-        enclaves = {},
-        embedded_enclaves = {},
-        loader_args = [],
-        **kwargs):
-    """Wraps a cc_library with a dependency on enclave availability at runtime.
-
-    Creates a loader for the given enclaves and containing the given embedded
-    enclaves. Passes flags according to `loader_args`, which can contain
-    references to targets from `enclaves`.
-
-    This macro creates three build targets:
-      1) name: shell script that runs `name_host_loader`.
-      2) name_loader: cc_binary used as loader in `name`. This is a normal
-                      native cc_binary. It cannot be directly run because there
-                      is an undeclared dependency on the enclaves.
-      3) name_host_loader: genrule that builds `name_loader` with the host
-                           crosstool.
-
-    Args:
-      name: Name for build target.
-      enclaves: Dictionary from enclave names to target dependencies. The
-        dictionary must be injective. This dictionary is used to format each
-        string in `loader_args` after each enclave target is interpreted as the
-        path to its output binary.
-      embedded_enclaves: Dictionary from ELF section names (that do not start
-        with '.') to target dependencies. Each target in the dictionary is
-        embedded in the loader binary under the corresponding ELF section.
-      loader_args: List of arguments to be passed to `loader`. Arguments may
-        contain {enclave_name}-style references to keys from the `enclaves` dict,
-        each of which will be replaced with the path to the named enclave.
-      **kwargs: cc_binary arguments.
-    """
-    loader_plain_name = name + "_loader"
-    loader_name = name + "_host_loader"
-
-    native.cc_library(
-        name = loader_plain_name,
-        **_ensure_shared_manual(kwargs)
-    )
-
-    # embed_enclaves ensures that the loader's ELF file is built with the host
-    # toolchain, even when its enclaves argument is empty.
-    embed_libenclaves(
-        name = loader_name,
-        elf_file = loader_plain_name,
-        enclaves = embedded_enclaves,
-        executable = 1,
-    )
-    _enclave_runner_script(
-        name = name,
-        loader = loader_name,
-        loader_args = loader_args,
-        enclaves = _invert_enclave_name_mapping(enclaves),
-        data = kwargs.get("data", []),
-    )
-
 def enclave_loader(
         name,
         enclaves = {},
@@ -501,7 +361,6 @@ def enclave_loader(
     """
     loader_plain_name = name + "_loader"
     loader_name = name + "_host_loader"
-    loader_lib_name = name + "_host_loader.so"
 
     native.cc_binary(
         name = loader_plain_name,
