@@ -57,7 +57,7 @@ def _ensure_static_manual(args):
 
     # Fully static so the test can move and still operate
     args["linkstatic"] = 1
-    args["copts"] = ["-g0"] + args.get("copts", [])
+    args["copts"] = ["-g0 -fpic"] + args.get("copts", [])
     return args
 
 def copy_from_host(target, output, name = ""):
@@ -360,6 +360,14 @@ def enclave_loader(
     """
     loader_plain_name = name + "_loader"
     loader_name = name + "_host_loader"
+    loaderlib_name = name + "_host_loader.so"
+    loaderlib_plain_name = name + "_loader.so"
+
+    native.cc_binary(
+        name = loaderlib_plain_name,
+        linkshared = True,
+        **_ensure_static_manual(kwargs)
+    )
 
     native.cc_binary(
         name = loader_plain_name,
@@ -368,6 +376,13 @@ def enclave_loader(
 
     # embed_enclaves ensures that the loader's ELF file is built with the host
     # toolchain, even when its enclaves argument is empty.
+    embed_enclaves(
+        name = loaderlib_name,
+        elf_file = loaderlib_plain_name,
+        enclaves = embedded_enclaves,
+        executable = 0,
+    )
+
     embed_enclaves(
         name = loader_name,
         elf_file = loader_plain_name,

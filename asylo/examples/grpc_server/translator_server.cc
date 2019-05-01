@@ -18,6 +18,8 @@
 
 #include "asylo/examples/grpc_server/translator_server.h"
 
+#include "absl/strings/str_split.h" // jinhwan
+
 #include "absl/strings/ascii.h"
 #include "absl/strings/str_cat.h"
 #include "include/grpcpp/grpcpp.h"
@@ -41,6 +43,46 @@ TranslatorServer::TranslatorServer()
                           "No input word given");
   }
 
+////////START_ jinhwan
+
+ ///start jinhwan_MATRIX
+ 
+ //a[2][3] * b[3][1] 
+ //input_example :{{3,2,3},{1,2,3}} {{1},{2},{1}}
+ 
+ string input= request->word();
+ string input_matrix_a;
+ string input_matrix_b;
+  
+ std::vector<std::string> input_v= absl::StrSplit(input_data," ");
+ input_matrix_a = input_v[0];
+ input_matrix_b = input_v[1];
+
+ void cell2mat(string str_matrix){
+  int count_columns;  // (count of ,) +1 until first }
+  int count_rows;     // (count of {) -1
+
+  char * char_matrix =new char[str_matrix.length()+1];
+   
+  for(int i=0; i<`)
+ } 
+/*
+ //start jinhwan_SUM
+  string input= request->input_word();
+  std::vector<std::string> input_v;
+  input_v  = absl::StrSplit(input," ");
+
+  int result_integer = std::stoi(input_v[0]) + std::stoi(input_v[1]);
+  string result_string = std::to_string(static_cast<long long>(result_integer));
+  
+  response->set_translated_word(result_string);
+  return ::grpc::Status::OK;
+*/
+
+
+/////////END_ jinhwan
+
+/*
   // Confirm that the translation map has a translation for the input word.
   auto response_iterator =
       translation_map_.find(absl::AsciiStrToLower(request->input_word()));
@@ -53,7 +95,9 @@ TranslatorServer::TranslatorServer()
   // Return the translation.
   response->set_translated_word(response_iterator->second);
   return ::grpc::Status::OK;
+*/
+  
 }
 
 }  // namespace grpc_server
-}  // namespace examples
+}  // namespace examples 
